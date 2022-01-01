@@ -18,28 +18,28 @@ depends_on = None
 
 def upgrade():
 
-    with op.batch_alter_table("posts_testing") as batch_op:
+    with op.batch_alter_table("posts") as batch_op:
         batch_op.add_column(
-            # "posts_testing",
+            # "posts",
             sa.Column("published", sa.Boolean(), nullable=False, server_default="TRUE")
         )
 
         batch_op.add_column(
-            # "posts_setting",
+            # "posts",
             sa.Column("created_at", sa.TIMESTAMP(timezone=True), nullable=False, server_default=sa.text("current_timestamp"))
         )
     pass
 
 
 def downgrade():
-    with op.batch_alter_table("posts_testing") as batch_op:
+    with op.batch_alter_table("posts") as batch_op:
         batch_op.drop_column(
-            # "posts_setting",
+            # "posts",
             "published"
         )
 
         batch_op.drop_column(
-            # "posts_setting",
+            # "posts",
             "created_at"
         )
     pass

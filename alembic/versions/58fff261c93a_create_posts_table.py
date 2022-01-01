@@ -20,7 +20,7 @@ depends_on = None
 
 def upgrade():
     op.create_table(
-        "posts_testing",
+        "posts",
         sa.Column("id", sa.Integer(), nullable=False, primary_key=True),
         sa.Column("title", sa.String(), nullable=False)
     )
@@ -28,6 +28,5 @@ def upgrade():
 
 
 def downgrade():
-    op.drop_table("posts_testing")
-    op.drop_table("alembic_version")
+    op.drop_table("posts")
     pass

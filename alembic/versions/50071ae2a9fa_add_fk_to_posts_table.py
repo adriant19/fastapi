@@ -19,13 +19,13 @@ depends_on = None
 # https://alembic.sqlalchemy.org/en/latest/batch.html
 
 def upgrade():
-    op.add_column("posts_testing", sa.Column("owner_id", sa.Integer(), nullable=False)),
+    op.add_column("posts", sa.Column("owner_id", sa.Integer(), nullable=False)),
 
-    with op.batch_alter_table("posts_testing") as batch_op:
+    with op.batch_alter_table("posts") as batch_op:
         batch_op.create_foreign_key(
             "post_users_fk",
             # source_table="posts_testing",
-            referent_table="users_testing",  # target table
+            referent_table="users",  # target table
             local_cols=["owner_id"],  # source table
             remote_cols=["id"],  # target table
             ondelete="cascade"
@@ -35,12 +35,12 @@ def upgrade():
 
 
 def downgrade():
-    with op.batch_alter_table("posts_testing") as batch_op:  # remove constraint first
+    with op.batch_alter_table("posts") as batch_op:  # remove constraint first
         batch_op.drop_constraint(
             "post_users_fk",
             # table_name="posts_testing"
         )
 
-    op.drop_column("posts_testing", "owner_id")
+    op.drop_column("posts", "owner_id")
 
     pass
