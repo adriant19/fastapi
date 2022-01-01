@@ -26,7 +26,7 @@ from .config import settings
 SQLALCHEMY_DATABASE_URL = "postgresql://{db_username}:{db_password}@{host_name}:{db_port}/{db_name}".format(
     db_username=settings.DATABASE_USERNAME,
     db_password=settings.DATABASE_PASSWORD,
-    host_name=settings.DATABASE_HOSTNAME,d
+    host_name=settings.DATABASE_HOSTNAME,
     db_port=settings.DATABASE_PORT,
     db_name=settings.DATABASE_NAME
 )
