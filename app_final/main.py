@@ -12,7 +12,7 @@ from .routers import post, user, auth, vote
 
 # command to tell sqlalchemy to run create statement to generate tables
 # can remove if using alembic
-models.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
 
 # create app
 app = FastAPI()
