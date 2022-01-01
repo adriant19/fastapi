@@ -52,7 +52,6 @@ class User(Base):
     email = Column(String, nullable=False, unique=True)  # cannot have duplicated entry
     password = Column(String, nullable=False)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text("current_timestamp"))
-    updated_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text("current_timestamp"))
 
 
 class Vote(Base):
