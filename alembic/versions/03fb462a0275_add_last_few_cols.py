@@ -26,9 +26,14 @@ def upgrade():
 
         batch_op.add_column(
             # "posts",
-            sa.Column("created_at", sa.TIMESTAMP(timezone=True), nullable=False, server_default=sa.text("current_timestamp")),
+            sa.Column("created_at", sa.TIMESTAMP(timezone=True), nullable=False, server_default=sa.text("current_timestamp"))
+        )
+
+        batch_op.add_column(
+            # "posts",
             sa.Column("updated_at", sa.TIMESTAMP(timezone=True), nullable=False, server_default=sa.text("current_timestamp"))
         )
+
     pass
 
 
@@ -42,5 +47,10 @@ def downgrade():
         batch_op.drop_column(
             # "posts",
             "created_at"
+        )
+
+        batch_op.drop_column(
+            # "posts",
+            "updated_at"
         )
     pass
