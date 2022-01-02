@@ -26,7 +26,8 @@ def upgrade():
 
         batch_op.add_column(
             # "posts",
-            sa.Column("created_at", sa.TIMESTAMP(timezone=True), nullable=False, server_default=sa.text("current_timestamp"))
+            sa.Column("created_at", sa.TIMESTAMP(timezone=True), nullable=False, server_default=sa.text("current_timestamp")),
+            sa.Column("updated_at", sa.TIMESTAMP(timezone=True), nullable=False, server_default=sa.text("current_timestamp")),
         )
     pass
 
