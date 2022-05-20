@@ -8,7 +8,7 @@ from .routers import post, user, auth, vote
 
 
 # -- START OF CODE -------------------------------------------------------------
-# uvicorn final_app:app --reload
+# uvicorn app_final.main:app --reload
 
 # command to tell sqlalchemy to run create statement to generate tables
 # can remove if using alembic

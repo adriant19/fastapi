@@ -1,0 +1,31 @@
+# version of docker compos
+version: "3"
+
+services: # containers to be run
+    
+    api: # api container
+        image: adriant19/fastapi
+        depends_on:
+            - postgres
+        ports: # <port on localhost>:<port on container>
+            - 80:8000
+        environment: # pass environment variables to container
+            - DATABASE_HOSTNAME=${DATABASE_HOSTNAME}
+            - DATABASE_PORT=${DATABASE_PORT}
+            - DATABASE_NAME=${DATABASE_NAME}
+            - DATABASE_USERNAME=${DATABASE_USERNAME}
+            - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+            - SECRET_KEY=${SECRET_KEY}
+            - ALGORITHM=${ALGORITHM}
+            - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
+ 
+    postgres: # build postgres image as its own container
+        image: postgres
+        environment:
+            - POSTGRES_DB=${DATABASE_NAME}
+            - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+        volumes: # to save data
+            - postgres-db:/var/lib/postgresql/data
+
+volumes: # named volumes
+    postgres-db: # multiple containers can reference named volumes
