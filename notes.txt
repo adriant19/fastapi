@@ -1,0 +1,7 @@
+- Setup virtual environment: python3 -m venv .venv
+
+- Install all dependencies with pip install
+
+- start app using command: uvicorn app.main:app --reload
+
+- Log all required libraries: pip3 freeze > requirements.txt

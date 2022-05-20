@@ -8,21 +8,20 @@ from .database import Base
 
 """ SQLALCHEMY MODELS - Object Relational Mapper (ORM)
 
-    * most popular: sqlalchemy
-    * different from pydantic model
+* most popular: sqlalchemy
+* different from pydantic model
 
-    - layer of abstraction between dB and API
-    - instead of manually defining tables in sql, define tables as python models
-    - queries can be made exclusively through python, no sql needed
-    - every model defined represents a table
-"""
+- layer of abstraction between dB and API
+- instead of manually defining tables in sql, define tables as python models
+- queries can be made exclusively through python, no sql needed
+- every model defined represents a table
 
+Table creation:
 
-""" table creation
+- column creation(data type)
+- for table migration have to use alembic
+- changes to the code does not update changes to the table
 
-    - column creation(data type)
-    - for table migration have to use alembic
-    - changes to the code does not update changes to the table
 """
 
 
@@ -41,6 +40,7 @@ class Post(Base):
     # relationship (of class) - fetches specific info from other tables
     # returns values from other tables related to this one
     # based on foreign key pointing to this record
+
     user = relationship("User")
 
 

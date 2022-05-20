@@ -4,8 +4,9 @@ from datetime import datetime
 
 """ PYDANTIC MODELS
 
-    - defining shape of the request & response
-    - ensures the body of the request is as expected
+- defining shape of the request & response
+- ensures the body of the request is as expected
+
 """
 
 

@@ -18,6 +18,7 @@ from .routers import post, user, auth, vote
 app = FastAPI()
 
 """ Cross-Origin Resource Sharing (CORS)
+
 https://fastapi.tiangolo.com/tutorial/cors/
 
 - frontend running in a browser has JavaScript code that communicates with a 
@@ -29,6 +30,7 @@ server to make requests to it
 - before requests are made, it passes through the middleware
 
 e.g. fetch("http://localhost:8000/").then(res=>res.json()).then(console.log)
+
 """
 
 origins = [
@@ -54,7 +56,7 @@ app.include_router(vote.router)
 
 # -- HTTP Requests -------------------------------------------------------------
 
-@ app.get("/")
+@app.get("/")
 def root():
 
     return {"msg": "welcome to the api (with sqlalchemy)"}

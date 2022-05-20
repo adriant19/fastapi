@@ -10,16 +10,16 @@ from .database import get_db
 from . import schemas, models
 
 """ JWT TOKEN AUTHENTICATION
---- 
-    https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/
 
-    - secret_key
-    - algorithm
-    - expiration time: how long user login remains logged after authentication
+https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/
+
+- secret_key
+- algorithm
+- expiration time: how long user login remains logged after authentication
 
 
 User Flow:
----
+
 Client -> API : /login {username, password} request - verify if credentials are valid
 Client <- API : response with {token} - user verified
 Client -> API : /posts request with {token} - verify if token is valid
@@ -27,20 +27,21 @@ Client <- API : response with data
 
 
 JWT TOKEN:
----
+
 header: algorithm, type (metadata)
 payload: send information with payload
 signature: combination of header, payload and "secret" (will be used to check if token is valid)
 
 
 PURPOSE OF SIGNATURE
----
+
 header, payload, secret -> signature
 header, signature, payload -> token
 
 [without secret] header, signature (non-updated signature), payload -> incorrect token
 
 token -> API : header, payload, secret to get test signature and check against user signature
+
 """
 
 SECRET_KEY = settings.SECRET_KEY

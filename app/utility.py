@@ -1,10 +1,6 @@
 from passlib.context import CryptContext
 
-""" UTILITIES
-
-    - additional functions used to authenticate users and privatise passwords
-    via hashing
-"""
+# additional functions used to authenticate users and privatise passwords
 
 pwd_context = CryptContext(schemes=["bcrypt"])
 
